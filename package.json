@@ -1,0 +1,24 @@
+{
+  "name": "matrix-lib",
+  "version": "1.0.0",
+  "description": "\"# matrix-lib\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthewKinsman/matrix-lib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatthewKinsman/matrix-lib/issues"
+  },
+  "homepage": "https://github.com/MatthewKinsman/matrix-lib#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  }
+}
