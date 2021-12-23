@@ -1,1 +1,2 @@
-export const Test = (name:string) =>'Hello';
+export * from './vector';
+export * from './vector2';
