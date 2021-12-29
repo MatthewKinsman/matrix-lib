@@ -34,7 +34,7 @@ export abstract class VectorBase<T> extends Float32Array implements Vector<T> {
     abstract add(vector: T): T;
     abstract subtract(vector: T): T;
     abstract multiply(vector: T): T;
-    
+
     abstract clone() : T;
     abstract normalize() : T;
     get length() : number{
