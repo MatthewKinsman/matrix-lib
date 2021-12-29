@@ -32,20 +32,20 @@ export abstract class Vector3Base<T> extends Vector2Base<T> {
 export class Vector3Impl extends Vector3Base<Vector3> implements Vector3{
     constructor(p1? : ArrayBuffer | Vector3 | number, p2 : number = 0, p3 : number = 0){
         if (p1 instanceof Vector3Impl){
-            super(new ArrayBuffer(8), 0);
+            super(new ArrayBuffer(12), 0);
             this.set([p1.x, p1.y, p1.z]);
         }else{
             if(p1 instanceof ArrayBuffer){
                 super(p1,p2);
             }else{
-                super(new ArrayBuffer(8), 0);
+                super(new ArrayBuffer(12), 0);
                 const x = p1 as number;
                 this.set([p1 ?? 0, p2, p3]);
             }
         }
     }
     get squareLength(): number {
-        return this[0]*this[0]+this[1]*this[1]+this[2]+this[2];
+        return this[0]*this[0]+this[1]*this[1]+this[2]*this[2];
     }
     add(vector: Vector3): Vector3 {
         this.x+=vector.x; this.y+=vector.y; this.z+=vector.z;
