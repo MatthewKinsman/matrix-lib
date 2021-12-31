@@ -32,9 +32,9 @@ export abstract class Vector4Base<T> extends Vector3Base<T> {
 @staticImplements<Vector4Constructor>()
 export class Vector4Impl extends Vector4Base<Vector4> implements Vector4{
     constructor(p1? : ArrayBuffer | Vector4 | number, p2 : number = 0, p3 : number = 0, p4 : number = 0){
-        if (p1 instanceof Vector4Impl){
+        if (p1 instanceof Vector4Base){
             super(new ArrayBuffer(16), 0);
-            this.set([p1.x, p1.y, p1.z]);
+            this.set([p1.x, p1.y, p1.z, p1.w]);
         }else{
             if(p1 instanceof ArrayBuffer){
                 super(p1,p2);

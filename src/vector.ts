@@ -1,4 +1,3 @@
-
 import {staticImplements} from "./helpers";
 
 export interface VectorOps<T>{
@@ -34,21 +33,23 @@ export abstract class VectorBase<T> extends Float32Array implements Vector<T> {
     abstract add(vector: T): T;
     abstract subtract(vector: T): T;
     abstract multiply(vector: T): T;
-
     abstract clone() : T;
     abstract normalize() : T;
+
     get length() : number{
         return Math.sqrt(this.squareLength);
     }
-    static add<T extends VectorOps<T>>(v1 : T, v2 : T) : T{
-        return v1.clone().add(v2);
-    }
-    static subtract<T extends VectorOps<T>>(v1 : T, v2 : T) : T{
-        return v1.clone().subtract(v2);
+    
+    static add<T extends VectorOps<T>>(this : new(vector : T)=> T,v1 : T, v2 : T) : T{
+        return new this(v1).add(v2);
     }
 
-    static multiply<T extends VectorOps<T>>(v1 : T, v2 : T) : T{
-        return v1.clone().multiply(v2);
+    static subtract<T extends VectorOps<T>>(this : new(vector : T) => T,v1 : T, v2 : T) : T{
+        return new this(v1).subtract(v2);
+    }
+
+    static multiply<T extends VectorOps<T>>(this : new(vector : T) => T,v1 : T, v2 : T) : T{
+        return new this(v1).multiply(v2);
     }
 
 }

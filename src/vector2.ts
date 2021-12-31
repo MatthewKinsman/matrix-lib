@@ -34,7 +34,7 @@ export abstract class Vector2Base<T> extends VectorBase<T>{
 @staticImplements<Vector2Constructor>()
 export class Vector2Impl extends Vector2Base<Vector2> implements Vector2{
     constructor(p1? : ArrayBuffer | Vector2 | number, p2 : number = 0){
-        if (p1 instanceof Vector2Impl){
+        if (p1 instanceof Vector2Base){
             super(new ArrayBuffer(8), 0);
             this.set([p1.x, p1.y]);
         }else{
